@@ -43,13 +43,16 @@ pipeline {
         steps {
             sh """
             echo "echo 1"
+	    if(${params.INPUT_PARAM}) {
+     		echo "${params.INPUT_PARAM}"
+     		}
             """
         }
 	}
     stage('Input Validation'){
         steps {
             sh """
-                echo "${params.PERSON}"
+                echo "${params.INPUT_PARAM}"
 	        """
         }
     }
